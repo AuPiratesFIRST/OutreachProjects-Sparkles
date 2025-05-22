@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.DrivetrainSubsystem;
 import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.LightingSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 
@@ -22,6 +23,7 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private DrivetrainSubsystem drivetrainSubsystem = new DrivetrainSubsystem();
+  private final LightingSubsystem lightingSubsystem = new LightingSubsystem();
 
   public XboxController controller0 = new XboxController(0);
 
@@ -34,8 +36,8 @@ public class RobotContainer {
       new RunCommand(
         () ->
          drivetrainSubsystem.drive(
-           controller0.getRawAxis(3),
-           controller0.getRawAxis(1)
+           controller0.getLeftY(),
+           controller0.getRightY()
          ),
          drivetrainSubsystem
       )
