@@ -36,8 +36,8 @@ public class RobotContainer {
       new RunCommand(
         () ->
          drivetrainSubsystem.drive(
-           controller0.getLeftY(),
-           controller0.getRightY()
+           -controller0.getLeftY(),
+           -controller0.getRightY()
          ),
          drivetrainSubsystem
       )
